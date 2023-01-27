@@ -35,13 +35,28 @@ submit.on("click", function(event){
     let b = moment();
     let difference = a.diff(b, 'days');
     let total = hourlyWageEl.val() * 8 * difference;
+    let removeButt = $('<button type="button" class="btn btn-danger">Remove</button>')
+    console.log(removeButt);
     
 
     console.log("hello");
     console.log(projectNameEl);
-    const tableRow = $('<tr><td>' + projectNameEl.val() + '</td>    <td>' + projectTypeEl.val() + '</td><td>' + hourlyWageEl.val() + '</td><td>' + a.format("Do MMMM YYYY") + '</td><td>' + difference + '</td><td>' + total + '</td></tr>');
+    const tableRow = $('<tr><td>' + projectNameEl.val() + '</td>    <td>' + projectTypeEl.val() + '</td><td>' + hourlyWageEl.val() + '</td><td>' + a.format("Do MMMM YYYY") + '</td><td>' + difference + '</td><td>$' + total + '.00</td></tr>');
+    tableRow.append(removeButt);
     tableBodyEl.append(tableRow);
     
+    projectNameEl.val('');
+    projectTypeEl.val('');
+    hourlyWageEl.val('');
+    dueDateEl.val('');
+    
+    removeButt.on("click", function(event){
+        event.preventDefault();
+        alert('1')
+        tableRow.remove();
+    })
+
+
 
 })
 
