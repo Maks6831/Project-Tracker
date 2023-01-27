@@ -1,14 +1,14 @@
 
 
 
-let clock = null;
+let timeDisplay = null;
 let display = $("#time");
 console.log(display);
 
 
 
 function time() {
-    clock = setInterval(function(){
+    timeDisplay = setInterval(function(){
          
         let curDatTime = moment().format("h:mm:ss a dddd Do MMMM YYYY");
         console.log(typeof curDatTime);
